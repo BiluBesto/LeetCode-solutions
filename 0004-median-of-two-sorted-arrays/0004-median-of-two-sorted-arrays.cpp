@@ -1,4 +1,4 @@
-class Solution {
+class Main {
 public:
     double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
         vector<int> A,B;
