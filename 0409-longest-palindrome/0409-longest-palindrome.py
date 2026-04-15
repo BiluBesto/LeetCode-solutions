@@ -1,19 +1,13 @@
-#from collections import Counter
+from collections import Counter
 class Solution:
     def longestPalindrome(self, s: str) -> int:
-        char_count = {}
-        for c in s:
-            char_count[c] = char_count.get(c,0)+1
-
+        count = Counter(s)
         length = 0
-        has_odd = False
-
-        for count in char_count.values():
-            if count%2==0:
-                length+=count
-            else:
-                length+=(count-1)
-                has_odd = True
-        if has_odd:
-            length+=1
-        return length
+        odd_found = False
+        
+        for c in count.values():
+            length += (c // 2) * 2
+            if c % 2 == 1:
+                odd_found = True
+        
+        return length + (1 if odd_found else 0)
