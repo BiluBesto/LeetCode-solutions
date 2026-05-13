@@ -7,7 +7,7 @@ class Solution:
             x1,y1 = p1
             x2,y2 = p2
             if x1-x2 == 0:
-                return inf
+                return 'inf'
             return (y1-y2)/(x1-x2)
 
         ans = 1
