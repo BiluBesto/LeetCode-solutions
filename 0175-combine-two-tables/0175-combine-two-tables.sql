@@ -1,5 +1,5 @@
 /* Write your PL/SQL query statement below */
-SELECT p.firstName firstName, p.lastName lastName, a.city city, a.state state
+SELECT p.firstName, p.lastName, a.city, a.state
 FROM Person p
 LEFT JOIN
 Address a
