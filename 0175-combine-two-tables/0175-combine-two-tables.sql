@@ -1,0 +1,10 @@
+/* Write your PL/SQL query statement below */
+SELECT p.firstName firstName, p.lastName lastName, a.city city, a.state state
+FROM Person p
+LEFT JOIN
+Address a
+ON a.personId = p.personId;
+
+-- Synced seamlessly with LeetHub Pro
+-- Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+-- Get it here: https://chromewebstore.google.com/detail/bcilpkkbokcopmabingnndookdogmbna
