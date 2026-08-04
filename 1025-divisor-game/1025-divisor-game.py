@@ -1,9 +1,6 @@
 class Solution:
     def divisorGame(self, n: int) -> bool:
-        if n%2==0:
-            return True
-        else:
-            return False
+        return not(bool(n%2))
 
 # Synced seamlessly with LeetHub Pro
 # Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
