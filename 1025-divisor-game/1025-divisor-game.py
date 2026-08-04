@@ -1,13 +1,9 @@
 class Solution:
     def divisorGame(self, n: int) -> bool:
-        res = False
-        while(n!=1):
-            for i in range(1,n//2+1):
-                if n%i == 0:
-                    res=not(res)
-                    n=n-1
-                    break
-        return res
+        if n%2==0:
+            return True
+        else:
+            return False
 
 # Synced seamlessly with LeetHub Pro
 # Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
