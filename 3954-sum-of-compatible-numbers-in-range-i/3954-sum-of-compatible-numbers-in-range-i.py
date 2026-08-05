@@ -1,8 +1,8 @@
 class Solution:
     def sumOfGoodIntegers(self, n: int, k: int) -> int:
         sum=0
-        for x in range(1,n+k+1):
-             if abs(n-x)<=k and n&x==0:
+        for x in range(max(1,n-k),n+k+1):
+             if n&x==0:
                 sum+=x
         return sum
 
