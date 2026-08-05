@@ -1,14 +1,14 @@
 class Solution:
     def findMaxAverage(self, nums: List[int], k: int) -> float:
         cursum=0
-        maxva = float('-inf')
         for i in range(k):
             cursum+=nums[i]
-        maxva=max(cursum,maxva)
+        maxva=cursum
         for i in range(k,len(nums)):
             cursum-=nums[i-k]
             cursum+=nums[i]
-            maxva=max(cursum,maxva)
+            if cursum>maxva:
+                maxva=cursum
         return maxva/k
 
 # Synced seamlessly with LeetHub Pro
