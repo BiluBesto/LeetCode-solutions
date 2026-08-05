@@ -1,24 +1,12 @@
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
-        memo = {}
-
-        def solve(amt):
-            if amt<0:
-                return -1
-            if amt==0:
-                return 0
-            if amt in memo:
-                return memo[amt]
-            min_count = float('inf')
+        dp = [amount+1]*(amount+1)
+        dp[0]=0
+        for i in range(1,amount+1):
             for coin in coins:
-                res = solve(amt-coin)
-                if res!=-1:
-                    min_count = min(min_count,1+res)
-                
-            memo[amt]=min_count if min_count!=float('inf') else -1
-            return memo[amt]
-        return solve(amount)
-        
+                if i-coin>=0:
+                    dp[i]=min(dp[i],1+dp[i-coin])
+        return dp[amount] if dp[amount]!=amount+1 else -1
 
 # Synced seamlessly with LeetHub Pro
 # Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
