@@ -1,13 +1,12 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        seen = {}
-        for i, num in enumerate(nums):
-            need = target - num
-            if need in seen:
-                return [seen[need], i]
-            seen[num] = i
-nums = [2, 7, 11, 15]
-target = 9
-sol = Solution()
-result = sol.twoSum(nums, target)
-print(result)
+        h = {}
+        for i in range(len(nums)):
+            if target-nums[i] in h:
+                return [h[target-nums[i]],i]
+            h[nums[i]]=i
+
+
+# Synced seamlessly with LeetHub Pro
+# Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+# Get it here: https://chromewebstore.google.com/detail/bcilpkkbokcopmabingnndookdogmbna
