@@ -24,13 +24,13 @@ public:
                         y = stoi(b);
                         z = stoi(c);
                         w = stoi(d);
-                        if(((!a.starts_with('0') && a.length()>1)||a.length()==1) && (x>=0 && x<=255))
+                        if(((!a.starts_with('0') && a.length()>1)||a.length()==1) && (x<=255))
                         {
-                            if(((!b.starts_with('0') && b.length()>1)||b.length()==1)&&(y>=0 && y<=255))
+                            if(((!b.starts_with('0') && b.length()>1)||b.length()==1)&&( y<=255))
                             {
-                                if(((!c.starts_with('0') && c.length()>1)||c.length()==1)&&(z>=0 && z<=255))
+                                if(((!c.starts_with('0') && c.length()>1)||c.length()==1)&&( z<=255))
                                 {
-                                    if(((!d.starts_with('0') && d.length()>1)||d.length()==1)&&(w>=0 && w<=255))
+                                    if(((!d.starts_with('0') && d.length()>1)||d.length()==1)&&(w<=255))
                                     {
                                         partres = a+"."+b+"."+c+"."+d;
                                         res.push_back(partres);
