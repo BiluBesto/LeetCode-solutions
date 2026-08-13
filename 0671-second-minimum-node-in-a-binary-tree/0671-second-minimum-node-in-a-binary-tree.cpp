@@ -12,49 +12,26 @@
 class Solution {
 public:
     
-    void minVal(TreeNode *root,int &firstMin)
-    {
-        if(root)
+    void solver(TreeNode *root, set<int> &st)
+    {   
+        if(!root)
         {
-            firstMin = min(firstMin,root->val);
-            if(root->left)
-            {
-                minVal(root->left,firstMin);
-            }
-            if(root->right)
-            {
-                minVal(root->right,firstMin);
-            }
+            return;
         }
-    }
-    void minVal2(TreeNode *root,long &secondNum,int &firstNum)
-    {
-        if(root)
-        {
-            if(root->val>firstNum)
-            {
-                if(secondNum>root->val)
-                {
-                    secondNum = root->val;
-                }
-            }
-            if(root->left)
-            {
-                minVal2(root->left,secondNum,firstNum);
-            }
-            if(root->right)
-            {
-                minVal2(root->right,secondNum,firstNum);
-            }
-        }
+        st.insert(root->val);
+        solver(root->left,st);
+        solver(root->right,st);
     }
     int findSecondMinimumValue(TreeNode* root) {
-        int firstMin = INT_MAX;
-        long secondMin = LLONG_MAX;
-        minVal(root,firstMin);
-        cout<<firstMin;
-        minVal2(root,secondMin,firstMin);
-        return (secondMin!=LLONG_MAX)? (int)secondMin : -1;
+        set<int> st;
+        solver(root,st);
+        if(st.size()<2)
+        {
+            return -1;
+        }
+        auto it = st.begin();
+        it++;
+        return *it;
     }
 };
 
