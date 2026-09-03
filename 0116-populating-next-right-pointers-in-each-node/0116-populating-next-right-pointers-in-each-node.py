@@ -36,8 +36,7 @@ class Solution:
                     n.next = l
                 l.next = m
                 n = m
-            if m is not None:
-                m.next = None
+           
         return root
 
 
