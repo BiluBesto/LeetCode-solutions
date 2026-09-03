@@ -1,14 +1,19 @@
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        prefSum = 0
-        freq = {0:1}
         count = 0
-        for i in nums:
-            prefSum += i
+        prefSum = 0
+        prefSumCount = {0:1}
 
-            if prefSum - k in freq:
-                count+=freq[prefSum-k]
-            freq[prefSum] = freq.get(prefSum,0)+1
+        for num in nums:
+            prefSum +=num
+            if prefSum - k in prefSumCount:
+                count += prefSumCount[prefSum-k]
+            if prefSum in prefSumCount:
+                prefSumCount[prefSum]+=1
+            else:
+                prefSumCount[prefSum]=1
+        return count
+
         return count
 
 # Synced seamlessly with LeetHub Pro
