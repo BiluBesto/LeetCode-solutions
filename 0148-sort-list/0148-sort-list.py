@@ -5,19 +5,43 @@
 #         self.next = next
 class Solution:
     def sortList(self, head: ListNode | None) -> ListNode | None:
-        dummy = ListNode(0)
+        def findmid(head):
+            if head is None or head.next is None:
+                return head
+            slow = head
+            fast = head.next
+            while fast and fast.next:
+                slow = slow.next
+                fast = fast.next.next
+            return slow
+        def merge(head1,head2):
+            mergeLL = ListNode(-1)
+            temp = mergeLL
+            while head1 and head2:
+                if head1.val<=head2.val:
+                    temp.next = head1
+                    head1=head1.next
+                else:
+                    temp.next = head2
+                    head2 = head2.next
+                temp = temp.next
+            while head1:
+                temp.next = head1
+                head1 = head1.next
+                temp = temp.next
+            while head2:
+                temp.next = head2
+                head2 = head2.next
+                temp = temp.next
+            return mergeLL.next
         if head is None or head.next is None:
             return head
-        arr = [head.val]
-        while head.next:
-            head=head.next
-            arr.append(head.val)
-        arr.sort()
-        cur = dummy
-        for i in arr:
-            cur.next = ListNode(i)
-            cur = cur.next
-        return dummy.next
+        mid = findmid(head)
+        righthead = mid.next
+        mid.next = None
+        left = self.sortList(head)
+        right = self.sortList(righthead)
+        return merge(left,right)
 
 # Synced seamlessly with LeetHub Pro
 # Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
