@@ -8,7 +8,7 @@ class Solution:
         res = ""
         skipflag = False
         for idx in range(len(s)):
-            if s[idx] == '(' and idx+1<len(s):
+            if s[idx] == '(':
                 i = idx+1
                 skipflag = True
             elif not skipflag:
